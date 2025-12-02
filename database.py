@@ -112,7 +112,7 @@ def update_entry(id):
 
 
 @app.route('/api/entries/<int:id>', methods=['DELETE'])
-def delete_entry(id):
+def delete_entry_aboba(id):
     # Connect to the database
     conn = get_db_connection()
 
