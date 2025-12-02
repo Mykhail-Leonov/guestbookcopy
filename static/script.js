@@ -87,6 +87,34 @@ function escapeHtml(str) {
   }[c]));
 }
 
+/*5. Deleting an entry
+When user clicks “Delete”, this event runs.
+e.preventDefault() stops the form from reloading the page.
+We get the ID from the input field.*/
+
+deleteForm.addEventListener('submit', async e => {
+  e.preventDefault();
+  const id = deleteIdInput.value.trim();
+  if (!id) return alert('Please enter an ID to delete');
+
+  /*Sends a DELETE request to the Flask backend for the specified ID.*/
+
+  const res = await fetch(`/api/entries/${id}`, {
+    method: 'DELETE'
+  });
+
+  /*If the request succeeds, clear the input and reload the list.
+    Otherwise, show an error.*/
+
+  if (res.ok) {
+    deleteIdInput.value = '';
+    loadEntries();
+  } else {
+    const err = await res.json();
+    alert(err.error || 'Failed to delete');
+  }
+});
+
 /*Run at startup
 Loads existing entries from the backend as soon as the page opens.*/
 
