@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Guestbook — Website Design & Development</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+  
+<body>
+  <main class="container">
+    <h1>Website Design & Development Guestbook</h1>
+    
+    <form id="entryForm">
+      <input id="name" placeholder="Your name (optional)" />
+      <textarea id="message" placeholder="What do you hope to learn?" required></textarea>
+      <button type="submit">Post</button>
+    </form>
+
+    <section id="entries">
+      <h2>Recent entries</h2>
+      <ul id="entriesList"></ul>
+    </section>
+    
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
